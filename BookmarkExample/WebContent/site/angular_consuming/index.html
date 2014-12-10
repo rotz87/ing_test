@@ -12,6 +12,10 @@
 		<div ng-controller="greetingDtlCtrl">
 			<p>This ID: {{greeting.id}}</p>
 			<p>This ID: {{greeting.content}}</p>
+			<input ng-model="customUser">
+			<button ng-click="myUser('Pluto')">World</button>
+			<button ng-click="myUser(customUser)">Custom user</button>
+			<p>The User is {{user}} spicy!</p>
 		</div>
 	</div>
 <!-- 		

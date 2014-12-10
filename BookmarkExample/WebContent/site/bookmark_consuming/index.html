@@ -21,7 +21,10 @@
 			 <input ng-model="customBookmark">
 			 <button ng-click="newBookmark('0/bookmark/0')">0/bookmark/0</button>
 			 <button ng-click="newBookmark(customBookmark)">Custom spice</button>
-			<p> La richiesta è stata {{myRequest}}</p>
+			
+		<div ng-repeat="link in links">
+			<p>Il link relativo a  {{link.rel}} ha l'url {{link.href}}</p>
+		</div>
 	</div>
 	</body>
 </html>

@@ -1,8 +1,3 @@
-var app = angular.module('greetingApp', 
-		[
-		 'restangular'
-		 ]);
-
 var greetingApp = angular.module('greetingApp', 
 		[
 		 'greetingControllers',
@@ -20,10 +15,18 @@ greetingServices.factory('Greeting',['$resource',
 
 var greetingControllers = angular.module('greetingControllers', []);
 greetingControllers.controller('greetingDtlCtrl',['$scope','Greeting',
-		  function($scope,Greeting) {
-			Greeting.get({name:'user'},function(response){
+		function($scope,Greeting) {
+		$scope.customUser = "Pluto"
+		$scope.user = "Pippo"
+		$scope.myUser = function (user)
+		{
+			
+			$scope.user = user;
+			Greeting.get({name: user},function(response){
 		    	  $scope.greeting = response;
 		      });
+		}
+
 			}]);
 
 var myApp = angular.module('myApp',[]);
