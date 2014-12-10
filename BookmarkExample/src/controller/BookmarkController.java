@@ -12,11 +12,11 @@ import model.*;
 import resourcemodel.*;
 
 @RestController
-@RequestMapping("/{userId}/bookmarks")
+@RequestMapping("/{username}/bookmarks")
 public class BookmarkController {
 	
 	@RequestMapping(value = "/{bookmarkId}", method = RequestMethod.GET)
-	public BookmarkResource readBookmark(@PathVariable Long userId, @PathVariable Long bookmarkId) {
+	public BookmarkResource readBookmark(@PathVariable String username, @PathVariable Long bookmarkId) {
 		
 		DBSingleton db;
 		Account account;
@@ -26,11 +26,12 @@ public class BookmarkController {
 		bookmark = null;
 		
 		db = DBSingleton.getIstance();
-		account = db.getAccounts().get(userId);
+		account = db.getAccounts().get(username);
 		if (account != null){
 			bookmark = account.getBookmarks().get(bookmarkId);
 		}
 		
+		//return null;
 		return new BookmarkResource(bookmark);
 		
 	}

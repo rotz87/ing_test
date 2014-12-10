@@ -9,7 +9,7 @@ public class DBSingleton {
 	
 	private static DBSingleton istance;
 	
-	private Map<Long, Account> accounts;
+	private Map<String, Account> accounts;
 
 
 	public static DBSingleton getIstance(){
@@ -22,12 +22,12 @@ public class DBSingleton {
 		
 	}
 	
-	public Map<Long, Account> getAccounts(){
+	public Map<String, Account> getAccounts(){
 		return this.accounts;
 	}
 	
 	private DBSingleton(){
-		this.accounts = new HashMap<Long, Account>();
+		this.accounts = new HashMap<String, Account>();
 	}
 	
 }

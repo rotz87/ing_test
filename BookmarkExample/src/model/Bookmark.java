@@ -1,10 +1,14 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Bookmark {
 	
 	private Long id;
 	private String uri;
 	private String description;
+	
+	@JsonIgnore
 	private Account account;
 
     public Bookmark(Long id, String uri, String description, Account account) {
