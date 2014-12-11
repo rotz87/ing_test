@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SimpleCORSFilterController implements Filter {
+	//commento di lorenzo
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) res;
