@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SimpleCORSFilterController implements Filter {
-//Vedere il CORS della guida Bookmarks - sezione Putting it All Together
+	//commento di lorenzo
+
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) res;
 		response.setHeader("Access-Control-Allow-Origin", "*");
