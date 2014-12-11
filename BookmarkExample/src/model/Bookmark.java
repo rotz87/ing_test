@@ -11,11 +11,21 @@ public class Bookmark {
 	@JsonIgnore
 	private Account account;
 
-    public Bookmark(Long id, String uri, String description, Account account) {
-    	this.id = id;
+	private Bookmark() {}
+	
+    public Bookmark(String uri, String description) {
+    	this.id = null;
         this.uri = uri;
         this.description = description;
-        this.account = account;
+        this.account = null;
+    }
+    
+    public void setAccount(Account account){
+    	this.account = account;
+    }
+    
+    public void setId(Long id){
+    	this.id = id;
     }
 
     public Long getId() {

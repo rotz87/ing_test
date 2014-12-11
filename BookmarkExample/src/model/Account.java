@@ -18,6 +18,7 @@ public class Account {
     }
     
     public void addBookmark(Bookmark bookmark){
+    	bookmark.setAccount(this);
     	this.bookmarks.put(bookmark.getId(), bookmark);
     }
     

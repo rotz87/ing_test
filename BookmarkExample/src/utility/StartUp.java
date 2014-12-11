@@ -16,19 +16,32 @@ public class StartUp {
     public void start() {
 		
 		Account account;
+		Bookmark bookmark;
 		
 		LogSingleton.getIstance().println("initializing DB");
-		System.out.println("aaa");
 		
 		account = new Account(0L, "arnaldo", "1234");
-		account.addBookmark(new Bookmark(0L, "http://biblioteca.it/libro0", "capitolo0", account));
-		account.addBookmark(new Bookmark(1L, "http://biblioteca.it/libr1", "capitolo1", account));
 		
+		bookmark = new Bookmark("http://biblioteca.it/libr1", "capitolo1");
+		DBSingleton.getIstance().addBookmark(bookmark);
+		account.addBookmark(bookmark);
+		
+		bookmark = new Bookmark("http://biblioteca.it/libr2", "capitolo2");
+		DBSingleton.getIstance().addBookmark(bookmark);
+		account.addBookmark(bookmark);
+
 		DBSingleton.getIstance().getAccounts().put(account.getUsername(), account);
 		
+		
 		account = new Account(1L, "giuseppe", "2345");
-		account.addBookmark(new Bookmark(2L, "http://biblioteca.it/libro5", "capitolo5", account));
-		account.addBookmark(new Bookmark(3L, "http://biblioteca.it/libr6", "capitolo6", account));
+		
+		bookmark = new Bookmark("http://biblioteca.it/libro5", "capitolo5");
+		DBSingleton.getIstance().addBookmark(bookmark);
+		account.addBookmark(bookmark);
+		
+		bookmark = new Bookmark("http://biblioteca.it/libr6", "capitolo6");
+		DBSingleton.getIstance().addBookmark(bookmark);
+		account.addBookmark(bookmark);
 		
 		DBSingleton.getIstance().getAccounts().put(account.getUsername(), account);
 		

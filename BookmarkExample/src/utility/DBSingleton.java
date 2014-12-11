@@ -10,6 +10,8 @@ public class DBSingleton {
 	private static DBSingleton istance;
 	
 	private Map<String, Account> accounts;
+	
+	private Map<Long, Bookmark> bookmarks;
 
 
 	public static DBSingleton getIstance(){
@@ -26,8 +28,17 @@ public class DBSingleton {
 		return this.accounts;
 	}
 	
+	public void addBookmark(Bookmark bookmark){
+		Long id;
+		
+		id = (long)this.bookmarks.size();
+		bookmark.setId(id);
+		this.bookmarks.put(id, bookmark);
+	}
+	
 	private DBSingleton(){
 		this.accounts = new HashMap<String, Account>();
+		this.bookmarks = new HashMap<Long, Bookmark>();
 	}
 	
 }
