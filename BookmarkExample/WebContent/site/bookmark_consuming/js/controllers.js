@@ -24,24 +24,35 @@ bookmarkControllers.controller('changeBookmark',['$scope', 'BookMark',function($
 			$scope.bookmark = response.bookmark;
 			$scope.links = response.links;
 			
-		})
-	}
+		});
+
+		//BookMark.update({userName : $scope.userName , booknumber : $scope.booknumber});
+	};
+	
 }]);
-//bookmarkControllers.controller('changeBookmark',['$scope', 'BookMark',function($scope,BookMark){
-//	$scope.customBookmark = '1/bookmarks/2';
-//	$scope.tmpBookmark = "0/bookmarks/0";
-//	var values = [];
-//	values = $scope.customBookmark.split("/bookmarks/");
-//	$scope.newBookmark = function(tmpBookmark){
-//		if(tmpBookmark)
-//		{
-//		values = tmpBookmark.split("/bookmarks/");
-//		console.log(values)
-//		}
-//		BookMark.get({mybookmark:values[0],booknumber:values[1]},function(response){
-//			
-//			$scope.bookmark = response;
-//			
-//		})
-//	}
-//}]);
+
+bookmarkControllers.controller('postBookmark',['$scope','BookMark',function($scope,BookMark){
+	$scope.userName='giuseppe';
+	$scope.booknumber='9';
+	$scope.bookdesc = 'capitolo N'
+	$scope.bookuri = "http://empty"
+	$scope.postMyBookmark = function( userN, bookN, desc, uri)
+	{
+		if( userN )
+		{
+			$scope.userName = userN;
+			$scope.booknumber = bookN;
+			$scope.bookdesc = desc;
+			$scope.bookuri = uri
+		}
+		$userName = $scope.userName;
+		$booknumber = $scope.booknumber;
+		var myBookmark= new BookMark({userName : $userName , booknumber : $booknumber});
+		myBookmark.desc = desc;
+		myBookmark.uri = uri;
+		console.log(myBookmark);
+		myBookmark.$post({userName : $userName}, myBookmark);
+		
+	};
+	
+}]);
