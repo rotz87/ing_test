@@ -47,12 +47,19 @@ bookmarkControllers.controller('postBookmark',['$scope','BookMark',function($sco
 		}
 		$userName = $scope.userName;
 		$booknumber = $scope.booknumber;
-		var myBookmark= new BookMark();
-		myBookmark.description = desc;
-		myBookmark.uri = uri;
-		console.log(myBookmark);
-		myBookmark.$post({userName : $userName}, myBookmark);
+		var newBook ={};
 		
+		newBook.description = desc;
+		newBook.uri = uri
+		var newResource;
+		var myResource = BookMark.post(
+				{userName : $userName}, 
+				newBook,function(payload,header)
+					{
+						console.log(payload);
+						console.log(header());
+					}
+				);
 	};
 	
 }]);
